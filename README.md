@@ -23,6 +23,7 @@ All credit to goes to the original author
     * sublime-text
     * fontawesome
     * dunst
+    * xfce4-terminal-git
 2) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
 3) cd ~repositories/dotfiles
 4) chmod +x bootstrap.sh

@@ -1,4 +1,4 @@
-#------------------------------------------------------------
+33#------------------------------------------------------------
 # POLYBAR - Status bar
 #
 # Move this file to $HOME/.config/polybar/config
@@ -48,7 +48,7 @@ background = #40000000
 background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
-foreground-colored = #64b3ad
+foreground-colored = #918996
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -176,7 +176,7 @@ label-mode-background = ${colors.primary}
 label-focused = %name%
 label-focused-background =  
 label-focused-foreground = ${colors.foreground-colored}
-;label-focused-underline = ${colors.foreground-colored}
+label-focused-underline = ${colors.foreground-colored}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 label-focused-font = 4
 
@@ -312,7 +312,7 @@ type = internal/network
 interface = enp0s3
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.foreground-colored}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -331,12 +331,12 @@ interval = 1
 
 time = %H:%M:%S
 
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground-colored}
+;format-prefix = "  "
+;format-prefix-foreground = ${colors.foreground-colored}
 ;format-underline = #0a6cf5
 
 label = %time%
-label-font = 4
+label-font = 3
 
 ;==========================================================
 
@@ -344,10 +344,10 @@ label-font = 4
 type = internal/date
 interval = 5
 
-date = " %a %d %b"
+date = " %A %d %B"
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-colored}
+;format-prefix = " "
+;format-prefix-foreground = ${colors.foreground-colored}
 
 label = %date%
 label-font = 3

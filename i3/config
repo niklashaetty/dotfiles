@@ -38,8 +38,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec terminator
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -183,10 +182,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Create borders
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
-new_window  pixel 2
-new_float   pixel 2
 
 # Gaps
 gaps inner 14
@@ -203,7 +200,7 @@ bindsym $mod+n          exec notify-send "Notification" "This is a test notifica
 bindsym $mod+Shift+n    exec notify-send "Notification" "This is a test notification" -u low --icon=bleachbit
 bindsym $mod+Mod1+n     exec notify-send "Notification" "This is a test notification" -u critical --icon=bleachbit
 
-# Set shut down, restart and locking features
+#Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
@@ -237,6 +234,9 @@ bindsym XF86AudioPlay   exec --no-startup-id sp play
 bindsym XF86AudioNext   exec --no-startup-id sp next
 bindsym XF86AudioPrev   exec --no-startup-id sp prev
 
+# Start terminal
+
+
 
 # Hide borders when only one window on screen
 hide_edge_borders smart
@@ -251,15 +251,16 @@ exec_always --no-startup-id xset r rate 250 50
 #exec_always feh --bg-fill $HOME/Pictures/Moss.jpg
 exec --no-startup-id nitrogen --restore
 # Start compton compositor (for transparent)
-exec_always --no-startup-id compton &
+#exec_always --no-startup-id killall compton
+exec_always --no-startup-id compton 
 
 exec_always --no-startup-id killall dunst
-exec_always --no-startup-id dunst &
+exec_always --no-startup-id dunst
 
 # Display top bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-set $color  #07989b
+set $color  #f0f0f0
 set $rcolo  #FF0000
 
 set $bg     #262626

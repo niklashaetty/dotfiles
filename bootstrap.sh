@@ -17,11 +17,43 @@
 ##    3) cd ~repositories/dotfiles
 ##    4) chmod +x bootstrap.sh
 ##    5) sh bootstrap.sh
+##
+##  This will create a lot of backups if you run it
+##  several times. To clean all backups, run:
+##  $ sh bootstrap.sh clean
+##
 ## 
 
 ##
 #  Global vars
 ##
+ 
+
+##
+#  Cleanup backup files. .20* to match .2019- etc.
+#  To clean: sh bootstrap.sh clean
+##
+if [ $1 = 'clean' ]
+  then
+     echo "Cleaning up old backup files"
+     rm $HOME/mimeapps.list.20*
+     rm $HOME/.config/polybar/*.20*
+     rm $HOME/.config/dunst/*.20*
+     rm $HOME/.config/rofi/*.20*
+     rm $HOME/.config/compton.conf.20*
+     rm $HOME/.bashrc.20*
+     rm $HOME/.gitconfig.20*
+     rm $HOME/.i3/config.20*
+     rm $HOME/.profile.20*
+     rm $HOME/.vimrc.20*
+     rm $HOME/.gtkrc-2.0.20*
+     rm $HOME/.vim/colors/nord.vim.20*
+     rm $HOME/.config/xfce4/terminal/terminalrc.20*
+     rm $HOME/.local/share/xfce4/terminal/colorschemes/Nord.theme.20*
+     rm -r $HOME/.config/sublime-text-3-*
+     exit
+  fi
+
 DOTFILES_DIR=$HOME/repositories/dotfiles
 
 ##
@@ -33,7 +65,7 @@ backup_old_file_if_exists () {
   if [ -f $input_file ] 
   then
       mv $input_file $input_file$postfix 
-      echo "$input_file already exists, backed it up before overwriting"
+      echo "backed up file $input_file"
   fi
 } 
 
@@ -41,32 +73,57 @@ backup_old_file_if_exists () {
 #  If dir already exists, create backup with timestamp
 ##
 backup_old_dir_if_exists () {
-  postfix=".$(date +'%Y-%m-%d-%T')"
+  postfix="-$(date +'%Y-%m-%d-%T')"
   input_dir=$1
   if [ -d $input_dir ] 
   then
       mkdir $input_dir$postfix
-      mv -r $input_dir/. $input_dir$postfix/
-      echo "$input_dir already exists, backed it up before overwriting"
+      mv $input_dir $input_dir$postfix
+      echo "backed up directory $input_dir"
   fi
 }
-
-$DOTFILES_DIR/i3/config $HOME/.i3/config
 
 ## 
 #  Make dirs
 ## 
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/rofi
+mkdir -p $HOME/.config/dunst
 mkdir -p $HOME/.config/i3
-mkdir -p $HOME/.config/sublime-text
+mkdir -p $HOME/.config/sublime-text-3
 mkdir -p $HOME/.themes
+mkdir -p $HOME/.local/share/icons
+mkdir -p $HOME/.dotfiles # For extra stuff e.g. i3lock blur
+mkdir -p $HOME/.vim/colors
+mkdir -p $HOME/.local/share/xfce4/terminal/colorschemes
+mkdir -p $HOME/.config/xfce4/terminal
+
 
 ##
 #  i3 config
 ##
 backup_old_file_if_exists "$HOME/.i3/config"
 cp $DOTFILES_DIR/i3/config $HOME/.i3/config
+
+##
+# .config files
+##
+# git config
+backup_old_file_if_exists "$HOME/.gitconfig"
+cp $DOTFILES_DIR/config/.gitconfig "$HOME/.gitconfig"
+
+# default apps
+backup_old_file_if_exists "$HOME/mimeapps.list"
+cp $DOTFILES_DIR/config/mimeapps.list $HOME/mimeapps.list
+
+# bash config
+backup_old_file_if_exists "$HOME/.bashrc"
+cp $DOTFILES_DIR/config/.bashrc $HOME/.bashrc
+
+# .profile
+backup_old_file_if_exists "$HOME/.profile"
+cp $DOTFILES_DIR/config/.profile $HOME/.profile
+
 
 ##
 #  polybar
@@ -88,8 +145,8 @@ cp $DOTFILES_DIR/rofi/carbo.rasi $HOME/.config/rofi/
 ##
 #  sublime-text
 ##
-backup_old_dir_if_exists "$HOME/.config/sublime-text/"
-cp -a $DOTFILES_DIR/sublime-text/. $HOME/.config/sublime-text/
+backup_old_dir_if_exists "$HOME/.config/sublime-text-3"
+cp -a $DOTFILES_DIR/sublime-text-3/. $HOME/.config/sublime-text-3/
 
 ##
 #  compton
@@ -104,10 +161,27 @@ backup_old_file_if_exists "$HOME/.config/dunst/dunstrc"
 cp $DOTFILES_DIR/dunst/dunstrc $HOME/.config/dunst/dunstrc
 
 ##
-#  gtk
+#  vim
 ##
-cp -a $DOTFILES_DIR/gtk/themes/. $HOME/.themes/
-cp -a $DOTFILES_DIR/gtk/icons/. /usr/share/icons/
+backup_old_file_if_exists "$HOME/.vim/colors/nord.vim"
+backup_old_file_if_exists "$HOME/.vimrc"
+cp $DOTFILES_DIR/vim/nord.vim $HOME/.vim/colors/
+cp $DOTFILES_DIR/vim/.vimrc $HOME/
+
+##
+#  xfce4-terminal
+##
+backup_old_file_if_exists "$HOME/.config/xfce4/terminal/terminalrc"
+backup_old_file_if_exists "$HOME/.local/share/xfce4/terminal/colorschemes/Nord.theme"
+cp $DOTFILES_DIR/xfce4-terminal/terminalrc $HOME/.config/xfce4/terminal/
+cp $DOTFILES_DIR/xfce4-terminal/Nord.theme $HOME/.local/share/xfce4/terminal/colorschemes/
+
+##
+#  gtk
+backup_old_file_if_exists "$HOME/.gtkrc-2.0"
+cp -a -n $DOTFILES_DIR/gtk/themes/. $HOME/.themes/
+cp -a -n $DOTFILES_DIR/gtk/icons/. $HOME/.local/share/icons/
+cp $DOTFILES_DIR/gtk/.gtkrc-2.0 $HOME/
 
 ##
 #  Restart i3

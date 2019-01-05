@@ -1,3 +1,12 @@
+/**
+ * ROFI Color theme
+ * User: bresilla
+ copy those lines to: ~/.conf/rofi/ or ~/.Xdefaults
+    rofi.fullscreen:true
+    rofi.theme: ~/.i3/rofi.rasi
+ */
+
+
 configuration {
 
     display-ssh:    "→ ";
@@ -9,9 +18,9 @@ configuration {
 }
 
 * {
-    accent: #64b3ad;
+    accent: #9A747E;
     foreground:                 @accent;
-    background:                 rgba(0, 0, 0, 0.99);
+    background:                 rgba(0, 0, 0, 0.50);
     transparent:                rgba(0, 0, 0, 0);
 
     normal-background:          @transparent;
@@ -20,6 +29,7 @@ configuration {
     urgent-foreground:          @foreground;
     active-background:          @transparent;
     active-foreground:          @foreground;
+    text-foreground:            rgba(223, 223, 223, 1);
 
     selected-normal-background:  @foreground;
     selected-normal-foreground:  @background;
@@ -48,7 +58,7 @@ configuration {
 }
 #mainbox {
     border:                 0;
-    padding:                30%;
+    padding:                35%;
 }
 #message {
     border:                 2px 0px 0px ;
@@ -68,44 +78,43 @@ configuration {
 
 #element {
     border:                 0;
-    border-radius:          40;
-    padding:                12 25 12;
+    padding:                10 10 10;
 }
 #element.normal.normal {
     background-color:       @normal-background;
-    text-color:             @normal-foreground;
+    text-color:             @text-foreground;
 }
 #element.normal.urgent {
     background-color:       @urgent-background;
-    text-color:             @urgent-foreground;
+    text-color:             @text-foreground;
 }
 #element.normal.active {
     background-color:       @active-background;
-    text-color:             @active-foreground;
+    text-color:             @text-foreground;
 }
 #element.selected.normal {
     background-color:       @selected-normal-background;
-    text-color:             @selected-normal-foreground;
+    text-color:             @text-foreground;
 }
 #element.selected.urgent {
     background-color:       @selected-urgent-background;
-    text-color:             @selected-urgent-foreground;
+    text-color:             @text-foreground;
 }
 #element.selected.active {
     background-color:       @selected-active-background;
-    text-color:             @selected-active-foreground;
+    text-color:             @text-foreground;
 }
 #element.alternate.normal {
     background-color:       @alternate-normal-background;
-    text-color:             @alternate-normal-foreground;
+    text-color:             @text-foreground;
 }
 #element.alternate.urgent {
     background-color:       @alternate-urgent-background;
-    text-color:             @alternate-urgent-foreground;
+    text-color:             @text-foreground;
 }
 #element.alternate.active {
     background-color:       @alternate-active-background;
-    text-color:             @alternate-active-foreground;
+    text-color:             @text-foreground;
 }
 
 #scrollbar {
@@ -120,22 +129,22 @@ configuration {
 }
 #button.selected {
     background-color:       @selected-normal-background;
-    text-color:             @selected-normal-foreground;
+    text-color:             @text-foreground;
 }
 #inputbar {
     spacing:                0;
-    text-color:             @normal-foreground;
+    text-color:             @text-foreground;
     padding:                1px ;
 }
 #case-indicator {
     spacing:                0;
-    text-color:             @normal-foreground;
+    text-color:             @text-foreground;
 }
 #entry {
     spacing:                0;
-    text-color:             @normal-foreground;
+    text-color:             @text-foreground;
 }
 #prompt, button{
     spacing:                0;
-    text-color:             @normal-foreground;
+    text-color:             @text-foreground;
 }
