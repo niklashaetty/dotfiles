@@ -9,7 +9,7 @@ configuration {
 }
 
 * {
-    accent: #A2F57D;
+    accent: #64b3ad;
     foreground:                 @accent;
     background:                 rgba(0, 0, 0, 0.99);
     transparent:                rgba(0, 0, 0, 0);
