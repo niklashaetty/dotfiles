@@ -275,5 +275,5 @@
   exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
   # xmodmap
-  exec_always --no-startup-id xmodmap $HOME/.xmodmap
+  exec_always --no-startup-id xmodmap $HOME/.Xmodmap
 
