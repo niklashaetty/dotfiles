@@ -248,7 +248,7 @@ hide_edge_borders smart
 exec_always --no-startup-id xset r rate 250 50
 
 # Set wallpaper
-exec_always feh --bg-fill $HOME/Pictures/Moss.jpg
+exec_always feh --bg-fill $HOME/Pictures/turusFR.jpg
 #exec --no-startup-id nitrogen --restore
 # Start compton compositor (for transparent)
 #exec_always --no-startup-id killall compton
