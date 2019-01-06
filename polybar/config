@@ -1,4 +1,4 @@
-33#------------------------------------------------------------
+#------------------------------------------------------------
 # POLYBAR - Status bar
 #
 # Move this file to $HOME/.config/polybar/config
@@ -6,11 +6,6 @@
 # Author:                Niklas Hätty
 # Dotfiles:              https://github.com/niklashaetty/dotfiles.git
 #------------------------------------------------------------
-# Modified version of these dotfiles. All credit goes to original author
-# Original author:       Adrien CARBONARO
-# Original Dotfiles:     www.github.com/adriencarbonaro/dotfiles.git
-#------------------------------------------------------------
-
 
 ;==========================================================
 ;
@@ -43,25 +38,28 @@
 ; 10% — 1A
 ; 5% — 0D
 ; 0% — 00
-background = #40000000
+background = #66000000
 
 background-alt = #444
-foreground = #dfdfdf
+foreground = #b3b2b2
 foreground-alt = #555
-foreground-colored = #918996
+foreground-colored = #9A747E
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
 ;==========================================================
 
-[bar/carbo]
+
+[bar/carbo2]
+monitor = VGA-2
 modules-left = i3
 modules-center = date clock 
-modules-right = alsa xbacklight wlan eth battery 
+modules-right = alsa xbacklight wlan eth battery
+
 
 width = 100%
-height = 35
+height = 40
 fixed-center = true
 
 background = ${colors.background}
@@ -74,18 +72,69 @@ line-color = #f00
 ;border-color = #00000000
 
 padding-left = 5
-padding-right = 7
+padding-right = 5
 
 module-margin-left = 3
 module-margin-right = 3
+
+
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Inconsolata:style=Bold:pixelsize=14;1
 font-3 = Inconsolata:pixelsize=14;1
-font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=14;1"
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
 font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
 font-6 = "Font Awesome 5 Brands:pixelsize=14;1"
+font-8 = Roboto:pixelsize=14;2
+font-7 = DejavVuSans-ExtraLight:style=ExtraLight:size=10
+
+
+tray-position = rightls
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+
+;==========================================================
+
+[bar/carbo1]
+monitor = VGA-1
+modules-left = i3
+modules-center = date clock 
+modules-right = filesystem cpu memory 
+width = 100%
+height = 40
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+;border-size = 4
+;border-color = #00000000
+
+padding-left = 5
+padding-right = 5
+
+module-margin-left = 3
+module-margin-right = 3
+
+
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = Inconsolata:style=Bold:pixelsize=14;1
+font-3 = Inconsolata:pixelsize=14;1
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
+font-6 = "Font Awesome 5 Brands:pixelsize=14;1"
+font-8 = Roboto:pixelsize=14;2
+font-7 = DejavVuSans-ExtraLight:style=ExtraLight:size=10
 
 
 tray-position = rightls
@@ -99,7 +148,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-label-font = 4
+label-font = 8
 
 ;==========================================================
 
@@ -127,10 +176,18 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F${colors.foreground-colored}}%mountpoint%%{F-}: %percentage_used%%
+
+format-mounted = <label-mounted>
+format-mounted-prefix = " "
+format-mounted-prefix-foreground = ${colors.foreground-colored}
+label-mounted = %percentage_used%% used of %total%
+label-mounted-foreground = ${colors.foreground}
+label-mounted-font = 8
+
+format-unmounted = <label-unmounted>
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-label-mounted-font = 4
+label-unmounted-foreground = ${colors.foreground}
+label-unmounted-font = 8
 
 ;==========================================================
 
@@ -165,7 +222,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -178,19 +235,20 @@ label-focused-background =
 label-focused-foreground = ${colors.foreground-colored}
 label-focused-underline = ${colors.foreground-colored}
 label-focused-padding = ${module/bspwm.label-focused-padding}
-label-focused-font = 4
+label-focused-font = 8
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-label-unfocused-font = 4
+label-unfocused-font = 8
 label-unfocused-foreground = ${colors.foreground}
+
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${colors.foreground-colored}
+label-visible-underline = ${colors.foreground}
 label-visible-padding = ${self.label-focused-padding}
-label-visible-font = 4
+label-visible-font = 8
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
@@ -224,7 +282,7 @@ format = <label>
 format-prefix = "  "
 label = "%percentage%%"
 format-prefix-foreground = ${colors.foreground-colored}
-label-font = 4
+label-font = 8
 
 bar-width = 15
 bar-indicator = |
@@ -256,7 +314,7 @@ format-prefix-font = 4
 
 format = <label>
 label = %percentage:3%%
-label-font = 4
+label-font = 8
 
 ;==========================================================
 
@@ -268,7 +326,7 @@ format-prefix-font = 4
 format-prefix-foreground = ${colors.foreground-colored}
 ;format-underline = #4bffdc
 label = %percentage_used:3%%
-label-font = 4
+label-font = 8
 
 ;==========================================================
 
@@ -316,6 +374,7 @@ format-connected-underline = ${colors.foreground-colored}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
+label-connected-font = 8
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -331,12 +390,12 @@ interval = 1
 
 time = %H:%M:%S
 
-;format-prefix = "  "
-;format-prefix-foreground = ${colors.foreground-colored}
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-colored}
 ;format-underline = #0a6cf5
 
 label = %time%
-label-font = 3
+label-font = 8
 
 ;==========================================================
 
@@ -350,7 +409,7 @@ date = " %A %d %B"
 ;format-prefix-foreground = ${colors.foreground-colored}
 
 label = %date%
-label-font = 3
+label-font = 8
 
 ;==========================================================
 
@@ -359,7 +418,7 @@ type = internal/alsa
 
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage:3%%
-label-volume-font = 4
+label-volume-font = 8
 
 format-muted = <label-muted>
 label-muted = 

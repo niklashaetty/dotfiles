@@ -47,6 +47,7 @@ if [ $1 = 'clean' ]
      rm $HOME/.gitconfig.20*
      rm $HOME/.i3/config.20*
      rm $HOME/.profile.20*
+     rm $HOME/.Xmodmap.20*
      rm $HOME/.vimrc.20*
      rm $HOME/.gtkrc-2.0.20*
      rm $HOME/.vim/colors/nord.vim.20*
@@ -111,22 +112,25 @@ cp $DOTFILES_DIR/i3/config $HOME/.i3/config
 ##
 # .config files
 ##
-# git config
-backup_old_file_if_exists "$HOME/.gitconfig"
-cp $DOTFILES_DIR/config/.gitconfig "$HOME/.gitconfig"
+  # git config
+  backup_old_file_if_exists "$HOME/.gitconfig"
+  cp $DOTFILES_DIR/config/.gitconfig $HOME/.gitconfig
 
-# default apps
-backup_old_file_if_exists "$HOME/mimeapps.list"
-cp $DOTFILES_DIR/config/mimeapps.list $HOME/mimeapps.list
+  # default apps
+  backup_old_file_if_exists "$HOME/mimeapps.list"
+  cp $DOTFILES_DIR/config/mimeapps.list $HOME/mimeapps.list
 
-# bash config
-backup_old_file_if_exists "$HOME/.bashrc"
-cp $DOTFILES_DIR/config/.bashrc $HOME/.bashrc
+  # bash config
+  backup_old_file_if_exists "$HOME/.bashrc"
+  cp $DOTFILES_DIR/config/.bashrc $HOME/.bashrc
 
-# .profile
-backup_old_file_if_exists "$HOME/.profile"
-cp $DOTFILES_DIR/config/.profile $HOME/.profile
+  # .profile
+  backup_old_file_if_exists "$HOME/.profile"
+  cp $DOTFILES_DIR/config/.profile $HOME/.profile
 
+  # .Xmodmap
+  backup_old_file_if_exists "$HOME/.Xmodmap"
+  cp $DOTFILES_DIR/config/.Xmodmap $HOME/.Xmodmap
 
 ##
 #  Wallpapers
