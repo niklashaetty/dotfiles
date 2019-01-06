@@ -1,22 +1,21 @@
 [user]
-  #enail = niklas.hatty@omegapoint.se
-  #email = niklas.hatty@tre.se
-	email = niklas.haetty@gmail.com
-	name = Niklas Hätty
+  #enail= niklas.hatty@omegapoint.se
+  #email= niklas.hatty@tre.se
+  email = niklas.haetty@gmail.com
+  name  = Niklas Hätty
 
 [alias]
-  co = checkout
-  cob = checkout -b
-  f = fetch -p
-  c = commit
-  ca = commit --amend
-  p = push
-  s = status
-  l = log --oneline -n 10
-  ll = log --oneline -n 
-  # Feature improving aliases
-  st = status
-  a = add 
-
-  lg = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
-  la    =     "!grep '\t=' ~/.gitconfig | less" 
+  co    = checkout
+  cob   = checkout -b
+  f     = fetch -p
+  c     = commit
+  ca    = commit --amend
+  p     = push
+  s     = status
+  l     = log --oneline -n 10
+  ll    = log --oneline -n 
+  st    = status
+  a     = add 
+  lg    = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+  la    = "!grep '\t=' ~/.gitconfig | less"
+  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
