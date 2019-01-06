@@ -9,10 +9,12 @@
 ##    1) Install the following packages:
 ##         * compton
 ##         * polybar
-##         * rxvt-unicode (URxvt)
+##         * xfce4-terminal
 ##         * rofi
-##         * sublime-text
+##         * sublime-text (optional)
 ##         * dunst
+##         * fontawesome
+##         * feh
 ##    2) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
 ##    3) cd ~repositories/dotfiles
 ##    4) chmod +x bootstrap.sh
@@ -86,6 +88,7 @@ backup_old_dir_if_exists () {
 ## 
 #  Make dirs
 ## 
+mkdir -p $HOME/Pictures
 mkdir -p $HOME/.config/polybar
 mkdir -p $HOME/.config/rofi
 mkdir -p $HOME/.config/dunst
@@ -124,6 +127,11 @@ cp $DOTFILES_DIR/config/.bashrc $HOME/.bashrc
 backup_old_file_if_exists "$HOME/.profile"
 cp $DOTFILES_DIR/config/.profile $HOME/.profile
 
+
+##
+#  Wallpapers
+##
+cp -n $DOTFILES_DIR/img/* $HOME/Pictures/
 
 ##
 #  polybar
