@@ -34,20 +34,24 @@ Dependencies that I know of:
 1) (Optional) Recommended post-install Manjaro commands
 This will update your download mirrors and then update the list from primary mirrors as well as updating all packages
 
-1) Install the dependencies available in pacman
+    ```
+    sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+    ```
+
+2) Install the dependencies available in pacman
     
     ```
     sudo pacman -S git compton polybar rofi dunst ttf-font-awesome feh
     ```
 
-2) Install dependencies available in AUR
+3) Install dependencies available in AUR
 
     ```
     pamac build sublime-text-dev xfce4-terminal-git
     ```
 
-2) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
-3) cd ~/repositories/dotfiles
-4) chmod +x bootstrap.sh
-5) sh bootstrap.sh
-6) (optional) Cleanup old backup files that are created: sh bootstrap.sh clean
+4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
+5) cd ~/repositories/dotfiles
+6) chmod +x bootstrap.sh
+7) sh bootstrap.sh
+8) (optional) Cleanup old backup files that are created: sh bootstrap.sh clean
