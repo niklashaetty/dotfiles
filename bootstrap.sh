@@ -52,6 +52,7 @@ if [ $1 = 'clean' ]
      rm $HOME/.i3/config.20*
      rm $HOME/.profile.20*
      rm $HOME/.Xmodmap.20*
+     rm $HOME/.XResources.20*
      rm $HOME/.vimrc.20*
      rm $HOME/.gtkrc-2.0.20*
      rm $HOME/.vim/colors/nord.vim.20*
@@ -144,6 +145,10 @@ cp $DOTFILES_DIR/i3/config $HOME/.i3/config
   # .Xmodmap
   backup_old_file_if_exists "$HOME/.Xmodmap"
   cp $DOTFILES_DIR/config/.Xmodmap $HOME/.Xmodmap
+
+  # .XResources
+  backup_old_file_if_exists "$HOME/.XResources"
+  cp $DOTFILES_DIR/config/.XResources $HOME/.XResources
 
   # .chrome-flags
   backup_old_file_if_exists "$HOME/.config/chrome-flags.conf"
