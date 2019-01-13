@@ -277,17 +277,11 @@
   # xmodmap
   exec_always --no-startup-id xmodmap $HOME/.Xmodmap
 
-# enable systemd service
-systemctl enable betterlockscreen@$USER
-
-
 #################################################
 ##                                             ##   
 #                 Betterlockscreen
 ##                                             ##
 #################################################
 
-  # make it so betterlockscreen is user after suspend as well
-  systemctl enable betterlockscreen@$USER
-
-  exec xautolock -time 3 -locker '/usr/bin/betterlockscreen -l' &
+  # lock after 3, suspend after 10
+  exec_always xautolock -time 3 -locker 'betterlockscreen -l' -killed 'betterlockscreen -s' -killtime 10
