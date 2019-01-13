@@ -282,11 +282,11 @@ label-font = 8
 
 [module/wlan]
 type = internal/network
-interface = "wlp3s0"
+interface = "wlp2s0"
 interval = 3.0
 
 format-connected-prefix = " "
-format-connected-prefix-font = 4
+format-connected-prefix-font = 8
 format-connected-prefix-foreground = ${colors.foreground-colored}
 
 
@@ -294,8 +294,8 @@ format-connected = <ramp-signal> <label-connected>
 ;format-connected-underline = #9f78e1
 
 label-connected = %essid%
-label-connected-foreground = ${colors.foreground-colored}
-label-connected-font = 3
+label-connected-foreground = ${colors.foreground}
+label-connected-font = 8
 
 format-disconnected-prefix = " "
 format-disconnected-prefix-foreground = ${colors.foreground-colored}
