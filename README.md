@@ -51,7 +51,7 @@ Dependencies that I know of:
 2) Install the dependencies available in pacman
     
     ```
-    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome feh
+    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome feh bash-completion
     ```
 
 3) Install dependencies available in AUR
