@@ -118,7 +118,7 @@
     bindsym $mod+0 mode "$mode_system"
     set $mode_system (l)oNck, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
     mode "$mode_system" {
-        bindsym l exec --no-startup-id i3exit lock, mode "default"
+        bindsym l exec --no-startup-id betterlockscreen -l -t "Speak, friend, and enter"
         bindsym s exec --no-startup-id i3exit suspend, mode "default"
         bindsym u exec --no-startup-id i3exit switch_user, mode "default"
         bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -277,3 +277,17 @@
   # xmodmap
   exec_always --no-startup-id xmodmap $HOME/.Xmodmap
 
+# enable systemd service
+systemctl enable betterlockscreen@$USER
+
+
+#################################################
+##                                             ##   
+#                 Betterlockscreen
+##                                             ##
+#################################################
+
+  # make it so betterlockscreen is user after suspend as well
+  systemctl enable betterlockscreen@$USER
+
+  exec xautolock -time 3 -locker '/usr/bin/betterlockscreen -l' &

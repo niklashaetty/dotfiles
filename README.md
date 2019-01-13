@@ -26,6 +26,7 @@ Dependencies that I know of:
 * dunst
 * xfce4-terminal
 * feh
+* betterlockscreen
 
 ## Get started
 
@@ -47,7 +48,7 @@ This will update your download mirrors and then update the list from primary mir
 3) Install dependencies available in AUR
 
     ```
-    pamac build sublime-text-dev xfce4-terminal-git
+    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen
     ```
 
 4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
