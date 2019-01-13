@@ -213,6 +213,11 @@ cp -a -n $DOTFILES_DIR/gtk/icons/. $HOME/.local/share/icons/
 cp $DOTFILES_DIR/gtk/.gtkrc-2.0 $HOME/
 
 ##
+#  betterlockscreen
+## 
+sudo cp $DOTFILES_DIR/betterlockscreen/betterlockscreen /usr/bin/
+
+##
 #  Restart i3
 ## 
 i3-msg restart
