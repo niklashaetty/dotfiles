@@ -4,4 +4,5 @@
 	"theme": "Default.sublime-theme",
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
+  "dpi_scale": 2.0,
 }

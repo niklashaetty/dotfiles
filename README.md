@@ -31,11 +31,20 @@ Dependencies that I know of:
 
 #### Using Manjaro i3 stock:
 
-1) (Optional) Recommended post-install Manjaro commands
-This will update your download mirrors and then update the list from primary mirrors as well as updating all packages
+1) (Optional) Nifty post-install Manjaro commands
+
+* This will update your download mirrors and then update the list from primary mirrors as well as updating all packages
 
     ```
     sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+    ```
+
+* This will install power management tools for optimized battery life.
+
+    ```
+    sudo pacman -S tlp
+    systemctl enable tlp
+    systemctl enable tlp-sleep.service
     ```
 
 2) Install the dependencies available in pacman

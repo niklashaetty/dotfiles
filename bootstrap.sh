@@ -29,7 +29,10 @@
 ##
 #  Global vars
 ##
+
+DOTFILES_DIR=$HOME/repositories/dotfiles
  
+
 
 ##
 #  Cleanup backup files. .20* to match .2019- etc.
@@ -43,6 +46,7 @@ if [ $1 = 'clean' ]
      rm $HOME/.config/dunst/*.20*
      rm $HOME/.config/rofi/*.20*
      rm $HOME/.config/compton.conf.20*
+     rm $HOME/.config/chrome-flags.conf.20*
      rm $HOME/.bashrc.20*
      rm $HOME/.gitconfig.20*
      rm $HOME/.i3/config.20*
@@ -57,7 +61,16 @@ if [ $1 = 'clean' ]
      exit
   fi
 
-DOTFILES_DIR=$HOME/repositories/dotfiles
+if [ $1 = 'blue' ]
+  then
+    POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
+    WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
+
+  else
+    POLYBARCONFIG="$DOTFILES_DIR/polybar/config"
+    WALLPAPER="$DOTFILES_DIR/img/red.jpg"
+fi
+
 
 ##
 #  If config already exist, create backup with timestamp
@@ -132,17 +145,21 @@ cp $DOTFILES_DIR/i3/config $HOME/.i3/config
   backup_old_file_if_exists "$HOME/.Xmodmap"
   cp $DOTFILES_DIR/config/.Xmodmap $HOME/.Xmodmap
 
+  # .chrome-flags
+  backup_old_file_if_exists "$HOME/.config/chrome-flags.conf"
+  cp $DOTFILES_DIR/config/chrome-flags.conf $HOME/.config/chrome-flags.conf
+
 ##
 #  Wallpapers
 ##
-cp -n $DOTFILES_DIR/img/* $HOME/Pictures/
+cp $WALLPAPER $HOME/Pictures/wallpaper.jpg
 
 ##
 #  polybar
 ##
 backup_old_file_if_exists "$HOME/.config/polybar/config"
 backup_old_file_if_exists "$HOME/.config/polybar/launch.sh"
-cp $DOTFILES_DIR/polybar/config $HOME/.config/polybar/
+cp $POLYBARCONFIG $HOME/.config/polybar/config
 cp $DOTFILES_DIR/polybar/launch.sh $HOME/.config/polybar/
 chmod +x $HOME/.config/polybar/launch.sh
 

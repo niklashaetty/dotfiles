@@ -4,5 +4,5 @@ rofi.theme: .config/rofi/carbo.rasi
 rofi.blur-background : true
 rofi.fullscreen:true
 rofi.terminal:urxvt
-rofi.font: DejaVuSans 9
+rofi.font: DejaVuSans 18
 

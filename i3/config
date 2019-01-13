@@ -118,7 +118,7 @@
     bindsym $mod+0 mode "$mode_system"
     set $mode_system (l)oNck, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
     mode "$mode_system" {
-        bindsym l exec --no-startup-id i3exit lock, mode "default"
+        bindsym l exec --no-startup-id betterlockscreen -l -t "Speak friend and enter"
         bindsym s exec --no-startup-id i3exit suspend, mode "default"
         bindsym u exec --no-startup-id i3exit switch_user, mode "default"
         bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -211,10 +211,10 @@
   bindsym $mod+Shift+4 move container to workspace $ws4
   bindsym $mod+Shift+5 move container to workspace $ws5
   bindsym $mod+Shift+6 move container to workspace $ws6
-  bindsym $mod+Shift+egrave move container to workspace $ws7
+  bindsym $mod+Shift+7 move container to workspace $ws7
   bindsym $mod+Shift+8 move container to workspace $ws8
-  bindsym $mod+Shift+ccedilla move container to workspace $ws9
-  bindsym $mod+Shift+agrave move container to workspace $ws10
+  bindsym $mod+Shift+9 move container to workspace $ws9
+  bindsym $mod+Shift+10 move container to workspace $ws10
 
 
 
@@ -232,16 +232,13 @@
   gaps outer -2
 
   # resolution and screen fixes
-  exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080 --auto --left-of VGA-2
-
-  # ..and for dual screens
-  exec_always --no-startup-id xrandr --output VGA-2 --mode 1920x1080 --auto --left-of VGA-1
+  exec_always --no-startup-id xrandr --output eDP1 --mode 3840x2160 
 
   # set autorepeat threshold to 250ms and speed to 50 repeats per seconds
   exec_always --no-startup-id xset r rate 250 50
 
   # set wallpaper
-  exec_always feh --bg-fill $HOME/Pictures/turusFR.jpg
+  exec_always feh --bg-fill $HOME/Pictures/wallpaper.jpg
 
   # colors
   set $color  #f0f0f0
