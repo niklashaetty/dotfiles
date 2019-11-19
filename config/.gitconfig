@@ -1,8 +1,6 @@
 [user]
-  #enail= niklas.hatty@omegapoint.se
-  email= niklas.hatty@tre.se
-  # email = niklas.haetty@gmail.com
-  name  = Niklas Hätty
+  email =
+  name = 
 
 [alias]
   co    = checkout
