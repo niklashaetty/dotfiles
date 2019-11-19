@@ -18,32 +18,41 @@ Credit is given in files where applicable. All credit to the original authors :)
 My setup builds from Manjaro i3, which apperantly comes bundled with gap support now. However, the dotfiles *should* work fine with any i3-gaps setup as long as the dependencies are installed.
 
 Dependencies that I know of:
-    * compton
-    * polybar
-    * rofi
-    * sublime-text (optional)
-    * fontawesome
-    * dunst
-    * xfce4-terminal
-    * feh
+* compton
+* polybar
+* rofi
+* sublime-text (optional)
+* fontawesome
+* dunst
+* xfce4-terminal
+* feh
+* betterlockscreen
 
 ## Get started
 
-# Manjaro i3 stock:
+#### Using Manjaro i3 stock:
 
-1) Install the dependencies available in pacman
+1) (Optional) Recommended post-install Manjaro commands
+This will update your download mirrors and then update the list from primary mirrors as well as updating all packages
+
+    ```
+    sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+    ```
+
+2) Install the dependencies available in pacman
     
     ```
-    sudo pacman -S compton polybar rofi dunst ttf-font-awesome feh
+    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome feh bash-completion
     ```
 
-2) Install dependencies available in AUR
+3) Install dependencies available in AUR
 
     ```
-    pamac build sublime-text-dev xfce4-terminal-git
+    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen
     ```
-2) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
-3) cd ~repositories/dotfiles
-4) chmod +x bootstrap.sh
-5) sh bootstrap.sh
-6) (optional) Cleanup old backup files that are created: sh bootstrap.sh clean
+
+4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
+5) cd ~/repositories/dotfiles
+6) chmod +x bootstrap.sh
+7) sh bootstrap.sh
+8) (optional) Cleanup old backup files that are created: sh bootstrap.sh clean
