@@ -231,11 +231,18 @@
   gaps inner 14
   gaps outer -2
 
+ 
+
   # resolution and screen fixes
-  exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080 --auto --left-of VGA-2
+  # exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080 --auto
 
   # ..and for dual screens
-  exec_always --no-startup-id xrandr --output VGA-2 --mode 1920x1080 --auto --left-of VGA-1
+  #exec_always --no-startup-id xrandr --output VGA-1 --mode 1920x1080 --auto --right-of VGA-2
+  #exec_always --no-startup-id xrandr --output VGA-2 --mode 1920x1080 --auto --left-of VGA-1
+
+  # Single widescreen here
+  exec_always --no-startup-id xrandr --output VGA-1 --mode 2560x1080 --auto
+
 
   # set autorepeat threshold to 250ms and speed to 50 repeats per seconds
   exec_always --no-startup-id xset r rate 250 50
@@ -276,4 +283,6 @@
 
   # xmodmap
   exec_always --no-startup-id xmodmap $HOME/.Xmodmap
-
+  
+  # avoid pacman authentication error
+  exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &

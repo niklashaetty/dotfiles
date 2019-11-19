@@ -307,7 +307,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-colored}
 ;format-underline = #f95050
 format-prefix-font = 4
@@ -321,7 +321,7 @@ label-font = 8
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = ""
 format-prefix-font = 4
 format-prefix-foreground = ${colors.foreground-colored}
 ;format-underline = #4bffdc
@@ -465,29 +465,29 @@ format-full        = <ramp-capacity><label-full>
 
 ; LABEL
 label-charging = %percentage:3%%
-label-charging-font = 4
+label-charging-font = 8 
 
 label-discharging = %percentage:3%%
-label-discharging-font = 4
+label-discharging-font = 8 
 
 label-full = %percentage:3%%
-label-full-font = 4
+label-full-font = 8 
 
 ; BATTERY CAPACITY RAMP
-ramp-capacity-0 = 
+ramp-capacity-0 = " " 
 ramp-capacity-0-foreground = ${self.color-alert}
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 ramp-capacity-4-foreground = ${self.color-full}
 ramp-capacity-foreground = ${self.color-discharging}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
 animation-charging-foreground = ${self.color-charging}
 animation-charging-framerate = 750
 
