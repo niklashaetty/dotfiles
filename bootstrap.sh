@@ -42,7 +42,7 @@ if [ $1 = 'clean' ]
      rm $HOME/.config/polybar/*.20*
      rm $HOME/.config/dunst/*.20*
      rm $HOME/.config/rofi/*.20*
-     rm $HOME/.config/compton.conf.20*
+     rm $HOME/.config/picom.conf.20*
      rm $HOME/.bashrc.20*
      rm $HOME/.gitconfig.20*
      rm $HOME/.i3/config.20*
@@ -163,8 +163,8 @@ cp -a $DOTFILES_DIR/sublime-text-3/. $HOME/.config/sublime-text-3/
 ##
 #  compton
 ##
-backup_old_file_if_exists "$HOME/.config/compton.conf"
-cp $DOTFILES_DIR/compton/compton.conf $HOME/.config/compton.conf
+backup_old_file_if_exists "$HOME/.config/picom.conf"
+cp $DOTFILES_DIR/picom/picom.conf $HOME/.config/picom.conf
 
 ##
 #  dunst

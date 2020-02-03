@@ -271,9 +271,10 @@
 ##                                             ##
 #################################################
 
-  # compton
-  exec_always --no-startup-id compton 
-
+  # picom
+  #exec_always --no-startup-id picom --config ~/.config/picom.conf
+  exec_always --no-startup-id killall picom
+  exec_always --no-startup-id killall compton 
   # dunst
   exec_always --no-startup-id killall dunst
   exec_always --no-startup-id dunst
