@@ -20,4 +20,4 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch carbo bar
-polybar carbo1 &
+polybar -r carbo1 &

@@ -7,7 +7,7 @@
 ## 
 ##  To use this: 
 ##    1) Install the following packages:
-##         * compton
+##         * picom
 ##         * polybar
 ##         * xfce4-terminal
 ##         * rofi
@@ -45,7 +45,7 @@ if [ $1 = 'clean' ]
      rm $HOME/.config/polybar/*.20*
      rm $HOME/.config/dunst/*.20*
      rm $HOME/.config/rofi/*.20*
-     rm $HOME/.config/compton.conf.20*
+     rm $HOME/.config/picom.conf.20*
      rm $HOME/.config/chrome-flags.conf.20*
      rm $HOME/.bashrc.20*
      rm $HOME/.gitconfig.20*
@@ -70,6 +70,7 @@ if [ $1 = 'blue' ]
   else
     POLYBARCONFIG="$DOTFILES_DIR/polybar/config"
     WALLPAPER="$DOTFILES_DIR/img/red.jpg"
+    LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
 fi
 
 
@@ -158,6 +159,7 @@ cp $DOTFILES_DIR/i3/config $HOME/.i3/config
 #  Wallpapers
 ##
 cp $WALLPAPER $HOME/Pictures/wallpaper.jpg
+cp $LOCKSCREEN $HOME/Pictures/lockscreen.jpg
 
 ##
 #  polybar
@@ -183,10 +185,10 @@ backup_old_dir_if_exists "$HOME/.config/sublime-text-3"
 cp -a $DOTFILES_DIR/sublime-text-3/. $HOME/.config/sublime-text-3/
 
 ##
-#  compton
+#  picom
 ##
-backup_old_file_if_exists "$HOME/.config/compton.conf"
-cp $DOTFILES_DIR/compton/compton.conf $HOME/.config/compton.conf
+backup_old_file_if_exists "$HOME/.config/picom.conf"
+cp $DOTFILES_DIR/picom/picom.conf $HOME/.config/picom.conf
 
 ##
 #  dunst

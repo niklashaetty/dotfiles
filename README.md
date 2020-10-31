@@ -18,7 +18,7 @@ Credit is given in files where applicable. All credit to the original authors :)
 My setup builds from Manjaro i3, which apperantly comes bundled with gap support now. However, the dotfiles *should* work fine with any i3-gaps setup as long as the dependencies are installed.
 
 Dependencies that I know of:
-* compton
+* picom
 * polybar
 * rofi
 * sublime-text (optional)
@@ -51,13 +51,13 @@ Dependencies that I know of:
 2) Install the dependencies available in pacman
     
     ```
-    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome feh bash-completion
+    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome-4 feh bash-completion
     ```
 
 3) Install dependencies available in AUR
 
     ```
-    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen
+    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen slack-desktop
     ```
 
 4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles

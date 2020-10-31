@@ -71,8 +71,8 @@ line-color = #f00
 padding-left = 5
 padding-right = 5
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 4
+module-margin-right = 4
 
 
 
@@ -80,11 +80,12 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Inconsolata:style=Bold:pixelsize=14;1
 font-3 = Inconsolata:pixelsize=14;1
-font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
-font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
+font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=20"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14"
 font-6 = "Font Awesome 5 Brands:pixelsize=14;1"
-font-7 = DejavVuSans-ExtraLight:style=ExtraLight:size=18
+font-7 = DejavVuSans-ExtraLight:style=ExtraLight:size=19
 font-8 = DejavVuSans-ExtraLight:style=ExtraLight:size=24
+font-9 = "Font Awesome:style=ExtraLight:size=20"
 
 
 tray-position = rightls
@@ -285,33 +286,28 @@ type = internal/network
 interface = "wlp2s0"
 interval = 3.0
 
-format-connected-prefix = " "
-format-connected-prefix-font = 8
 format-connected-prefix-foreground = ${colors.foreground-colored}
 
-
 format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = #9f78e1
+
+format-connected-font = 10
 
 label-connected = %essid%
 label-connected-foreground = ${colors.foreground}
 label-connected-font = 8
 
-format-disconnected-prefix = " "
-format-disconnected-prefix-foreground = ${colors.foreground-colored}
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = #9f78e1
 
 label-disconnected = ... 
 label-disconnected-foreground = ${colors.foreground}
 label-disconnected-font = 4
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-colored}
 
 ;==========================================================
 
@@ -340,9 +336,10 @@ interval = 1
 
 time = %H:%M:%S
 
-format-prefix = "  "
+format-prefix = ""
+format-prefix-padding = 3
+format-prefix-font = 5
 format-prefix-foreground = ${colors.foreground-colored}
-;format-underline = #0a6cf5
 
 label = %time%
 label-font = 8
@@ -354,10 +351,6 @@ type = internal/date
 interval = 5
 
 date = " %A %d %B"
-
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-colored}
-
 label = %date%
 label-font = 8
 
@@ -377,8 +370,11 @@ label-muted-foreground = ${colors.foreground-colored}
 
 ramp-volume-foreground = ${colors.foreground-colored}
 ramp-volume-0 = 
-ramp-volume-1 =  
-ramp-volume-2 = " "
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = " "
+ramp-volume-font = 10
 
 ;==========================================================
 
@@ -395,36 +391,29 @@ color-charging    = ${colors.foreground-colored}
 color-discharging = ${colors.foreground-colored}
 color-full        = ${colors.foreground-colored}
 
-; PREFIX
-;format-charging-prefix = ""
-;format-charging-prefix-font = 4
-;format-charging-prefix-foreground = ${self.color-charging}
-
-;format-discharging-prefix = "BAT "
-;format-discharging-prefix-font = 4
-;format-discharging-prefix-foreground = ${self.color-discharging}
-
-;format-full-prefix = "BAT "
-;format-full-prefix-font = 4
-;format-full-prefix-foreground = ${self.color-full}
 
 ; FORMAT 
 format-charging    = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 format-full        = <ramp-capacity><label-full>
 
+format-discharging-font = 10
+format-charging-font = 10
+format-full-font = 10
+
 ; LABEL
 label-charging = %percentage:3%%
 label-charging-font = 8
 
-label-discharging = %percentage:3%%
-label-discharging-font = 8
-
 label-full = %percentage:3%%
 label-full-font = 8
 
+label-discharging = %percentage:3%%
+label-discharging-font = 8
+
 ; BATTERY CAPACITY RAMP
 ramp-capacity-0 = 
+ramp-capacity-font: 5
 ramp-capacity-0-foreground = ${self.color-alert}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -440,12 +429,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${self.color-charging}
 animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
 
 ;==========================================================
 
