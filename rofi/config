@@ -1,8 +1,8 @@
+rofi.font: DejaVuSans 8
 rofi.show: run
 rofi.modi: window,ssh,run
 rofi.theme: .config/rofi/carbo.rasi
 rofi.blur-background : true
 rofi.fullscreen:true
 rofi.terminal:urxvt
-rofi.font: DejaVuSans 18
 

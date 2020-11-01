@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 ##  Author: Niklas Hätty
 ##  Dotfiles: https://github.com/niklashaetty/dotfiles.git
 ## 
@@ -31,22 +32,7 @@
 ##
 
 DOTFILES_DIR=$HOME/repositories/dotfiles
-
-
-##
-#  Parse opts
-##
-
-# saner programming env: these switches turn some bugs into errors
-set -o errexit -o pipefail -o noclobber -o nounset
-
-# -allow a command to fail with !’s side effect on errexit
-# -use return value from ${PIPESTATUS[0]}, because ! hosed $?
-! getopt --test > /dev/null 
-if [[ ${PIPESTATUS[0]} -ne 4 ]]; then
-    echo 'I’m sorry, `getopt --test` failed in this environment.'
-    exit 1
-fi
+source $DOTFILES_DIR/tre.sh
 
 
 ##
@@ -88,16 +74,6 @@ if [ $1 = '--blue' ]
     LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
 fi
 
-if [ $2 = '--high-dpi' ]
-  then
-    POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
-    WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
-
-  else
-    POLYBARCONFIG="$DOTFILES_DIR/polybar/config"
-    WALLPAPER="$DOTFILES_DIR/img/red.jpg"
-    LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
-fi
 
 ##
 #  If config already exist, create backup with timestamp
@@ -234,7 +210,12 @@ cp $DOTFILES_DIR/vim/.vimrc $HOME/
 ##
 backup_old_file_if_exists "$HOME/.config/xfce4/terminal/terminalrc"
 backup_old_file_if_exists "$HOME/.local/share/xfce4/terminal/colorschemes/Nord.theme"
-cp $DOTFILES_DIR/xfce4-terminal/terminalrc $HOME/.config/xfce4/terminal/
+
+# Do some magic to replace the font with the one specified in the config file
+cp $DOTFILES_DIR/xfce4-terminal/terminalrc $DOTFILES_DIR/xfce4-terminal/terminalrctmp
+sed -i "2s/.*/$dotfiles_terminal_font/" $DOTFILES_DIR/xfce4-terminal/terminalrctmp
+cp $DOTFILES_DIR/xfce4-terminal/terminalrctmp $HOME/.config/xfce4/terminal/terminalrc
+rm $DOTFILES_DIR/xfce4-terminal/terminalrctmp
 cp $DOTFILES_DIR/xfce4-terminal/Nord.theme $HOME/.local/share/xfce4/terminal/colorschemes/
 
 ##

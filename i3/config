@@ -232,6 +232,8 @@
   gaps outer 0
 
   # resolution and screen fixes
+  set_from_resource $monitor echo "$dotfiles_monitor"
+  set_from_resource $resoultion echo "$dotfiles_resolution"
   exec_always --no-startup-id xrandr --output eDP1 --mode 3840x2160 
 
   # set autorepeat threshold to 250ms and speed to 50 repeats per seconds
@@ -261,7 +263,7 @@
 ##                                             ##
 #################################################
 
-  # compton
+  # picom
   exec_always --no-startup-id picom
 
   # dunst

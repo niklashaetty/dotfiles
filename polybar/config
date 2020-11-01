@@ -53,12 +53,12 @@ alert = #bd2c40
 
 
 [bar/carbo1]
-monitor = eDP1
+monitor = ${env:dotfiles_monitor:x}
 modules-left = i3
 modules-center = date clock 
 modules-right = alsa xbacklight wlan eth battery
 width = 100%
-height = 55
+height = 35
 fixed-center = true
 
 
@@ -82,8 +82,8 @@ module-margin-left = 4
 module-margin-right = 4
 
 ; The last semicolon will be padding top for the font.
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-0 = ${env:dotfiles_text_font:x}
+font-1 = ${env:dotfiles_icon_font:x}
 font-2 = Inconsolata:style=Bold:pixelsize=14;2
 font-3 = Inconsolata:pixelsize=14;2
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=20;2"
@@ -139,12 +139,12 @@ label-focused-background =
 label-focused-foreground = ${colors.foreground-colored}
 label-focused-underline = ${colors.foreground-colored}
 label-focused-padding = ${module/bspwm.label-focused-padding}
-label-focused-font = 8
+label-focused-font = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-label-unfocused-font = 8
+label-unfocused-font = 1
 label-unfocused-foreground = ${colors.foreground}
 
 ; visible = Active workspace on unfocused monitor
@@ -152,7 +152,7 @@ label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${colors.foreground}
 label-visible-padding = ${self.label-focused-padding}
-label-visible-font = 8
+label-visible-font = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
@@ -164,21 +164,6 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ;==========================================================
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-;==========================================================
-
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -186,7 +171,7 @@ format = <label>
 format-prefix = "  "
 label = "%percentage%%"
 format-prefix-foreground = ${colors.foreground-colored}
-label-font = 8
+label-font = 1
 
 bar-width = 15
 bar-indicator = |
@@ -220,13 +205,13 @@ format-connected-font = 10
 
 label-connected = %essid%
 label-connected-foreground = ${colors.foreground}
-label-connected-font = 8
+label-connected-font = 1
 
 format-disconnected = <label-disconnected>
 
 label-disconnected = ... 
 label-disconnected-foreground = ${colors.foreground}
-label-disconnected-font = 4
+label-disconnected-font = 1
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -246,7 +231,7 @@ format-connected-underline = ${colors.foreground-colored}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
-label-connected-font = 8
+label-connected-font = 1
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -264,11 +249,11 @@ time = %H:%M:%S
 format-background = ${colors.background}
 format-prefix = ""
 format-prefix-padding = 3
-format-prefix-font = 5
+format-prefix-font = 2
 format-prefix-foreground = ${colors.foreground-colored}
 
 label = %time%
-label-font = 8
+label-font = 1
 
 ;==========================================================
 
@@ -278,7 +263,7 @@ interval = 5
 
 date = " %A %d %B"
 label = %date%
-label-font = 8
+label-font = 1
 
 ;==========================================================
 
@@ -287,11 +272,11 @@ type = internal/alsa
 
 format-volume = <ramp-volume><label-volume>
 label-volume = %percentage:3%%
-label-volume-font = 8
+label-volume-font = 1
 
 format-muted = <label-muted>
 label-muted = 
-label-muted-font = 4
+label-muted-font = 2
 label-muted-foreground = ${colors.foreground-colored}
 
 ramp-volume-foreground = ${colors.foreground-colored}
@@ -329,13 +314,13 @@ format-full-font = 10
 
 ; LABEL
 label-charging = %percentage:3%%
-label-charging-font = 8
+label-charging-font = 1
 
 label-full = %percentage:3%%
-label-full-font = 8
+label-full-font = 1
 
 label-discharging = %percentage:3%%
-label-discharging-font = 8
+label-discharging-font = 1
 
 ; BATTERY CAPACITY RAMP
 ramp-capacity-0 = 
