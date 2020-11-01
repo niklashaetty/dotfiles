@@ -63,11 +63,13 @@ if [ $1 = 'clean' ]
 
 if [ $1 = 'blue' ]
   then
+    THEME=blue
     POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
     WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
 elif [ $1 = 'red' ]
   then
-    POLYBARCONFIG="$DOTFILES_DIR/polybar/config"
+    THEME=red
+    POLYBARCONFIG="$DOTFILES_DIR/polybar/config.red"
     WALLPAPER="$DOTFILES_DIR/img/red.jpg"
     LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
 else
@@ -183,9 +185,10 @@ chmod +x $HOME/.config/polybar/launch.sh
 #  rofi
 ##
 backup_old_file_if_exists "$HOME/.config/rofi/config"
-backup_old_file_if_exists "$HOME/.config/rofi/carbo.rasi"
+backup_old_file_if_exists "$HOME/.config/rofi/red.rasi"
+backup_old_file_if_exists "$HOME/.config/rofi/blue.rasi"
 cp $DOTFILES_DIR/rofi/config $HOME/.config/rofi/
-cp $DOTFILES_DIR/rofi/carbo.rasi $HOME/.config/rofi/
+cp $DOTFILES_DIR/rofi/$THEME.rasi $HOME/.config/rofi/carbo.rasi
 
 ##
 #  sublime-text

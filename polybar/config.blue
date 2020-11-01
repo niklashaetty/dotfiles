@@ -248,7 +248,7 @@ interval = 1
 time = %H:%M:%S
 format-background = ${colors.background}
 format-prefix = ""
-format-prefix-padding = 3
+format-prefix-padding = 1
 format-prefix-font = 2
 format-prefix-foreground = ${colors.foreground-colored}
 
