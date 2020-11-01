@@ -24,9 +24,9 @@
 ;   The README contains alot of information
 ;
 ;==========================================================
-
 [colors]
 ; Two first characters indicate background opacity
+; 100% - FF
 ; 50% — 80
 ; 45% — 73
 ; 40% — 66
@@ -38,8 +38,8 @@
 ; 10% — 1A
 ; 5% — 0D
 ; 0% — 00
-background = #66000000
-
+background = #662E3440
+transparent = #00000000
 background-alt = #444
 foreground = #b3b2b2
 foreground-alt = #555
@@ -50,14 +50,23 @@ alert = #bd2c40
 
 ;==========================================================
 
+
+
 [bar/carbo1]
 monitor = eDP1
 modules-left = i3
 modules-center = date clock 
 modules-right = alsa xbacklight wlan eth battery
 width = 100%
-height = 60
+height = 55
 fixed-center = true
+
+
+; Make the bar float with invisible bar
+border-color = ${colors.transparent}
+border-left-size = 20
+border-right-size = 20
+border-top-size = 20
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -65,8 +74,6 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-;border-size = 4
-;border-color = #00000000
 
 padding-left = 5
 padding-right = 5
@@ -74,18 +81,17 @@ padding-right = 5
 module-margin-left = 4
 module-margin-right = 4
 
-
-
+; The last semicolon will be padding top for the font.
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Inconsolata:style=Bold:pixelsize=14;1
-font-3 = Inconsolata:pixelsize=14;1
-font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=20"
-font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14"
-font-6 = "Font Awesome 5 Brands:pixelsize=14;1"
-font-7 = DejavVuSans-ExtraLight:style=ExtraLight:size=19
-font-8 = DejavVuSans-ExtraLight:style=ExtraLight:size=24
-font-9 = "Font Awesome:style=ExtraLight:size=20"
+font-2 = Inconsolata:style=Bold:pixelsize=14;2
+font-3 = Inconsolata:pixelsize=14;2
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=20;2"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;2"
+font-6 = "Font Awesome 5 Brands:pixelsize=14;2"
+font-7 = DejavVuSans:size=19;2
+font-8 = DejavVuSans:size=24;2
+font-9 = "Font Awesome:style=ExtraLight:size=20;2"
 
 
 tray-position = rightls
@@ -93,54 +99,6 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-;==========================================================
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-label-font = 8
-
-;==========================================================
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
-;==========================================================
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-
-format-mounted = <label-mounted>
-format-mounted-prefix = " "
-format-mounted-prefix-foreground = ${colors.foreground-colored}
-label-mounted = %percentage_used%% used of %total%
-label-mounted-foreground = ${colors.foreground}
-label-mounted-font = 8
-
-format-unmounted = <label-unmounted>
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground}
-label-unmounted-font = 8
-
-;==========================================================
 
 [module/bspwm]
 type = internal/bspwm
@@ -161,17 +119,12 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 3
 
-; Separator in between workspaces
-; label-separator = |
-
-;==========================================================
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
@@ -253,33 +206,6 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-;==========================================================
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-colored}
-;format-underline = #f95050
-format-prefix-font = 4
-
-format = <label>
-label = %percentage:3%%
-label-font = 8
-
-;==========================================================
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-font = 4
-format-prefix-foreground = ${colors.foreground-colored}
-;format-underline = #4bffdc
-label = %percentage_used:3%%
-label-font = 8
-
-;==========================================================
 
 [module/wlan]
 type = internal/network
@@ -335,7 +261,7 @@ type = internal/date
 interval = 1
 
 time = %H:%M:%S
-
+format-background = ${colors.background}
 format-prefix = ""
 format-prefix-padding = 3
 format-prefix-font = 5
@@ -477,3 +403,4 @@ margin-top = 5
 ;margin-bottom = 5
 
 ; vim:ft=dosini
+

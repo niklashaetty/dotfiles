@@ -64,4 +64,9 @@ Dependencies that I know of:
 5) cd ~/repositories/dotfiles
 6) chmod +x bootstrap.sh
 7) sh bootstrap.sh
-8) (optional) Cleanup old backup files that are created: sh bootstrap.sh clean
+8) Lock once to set and cache the lockscreen background
+    ```
+    betterlockscreen -u "$HOME/Pictures/lockscreen.jpg" -l
+    ```
+9) (optional) Cleanup old backup files that are created: sh bootstrap.sh clean
+

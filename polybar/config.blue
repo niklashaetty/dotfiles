@@ -38,17 +38,19 @@
 ; 10% — 1A
 ; 5% — 0D
 ; 0% — 00
-background = #80000000
+background = #0D000000
+transparent = #00000000
 
 background-alt = #444
-foreground = #b3b2b2
+foreground = #265da5
 foreground-alt = #555
 foreground-colored = #265da5
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
-
 ;==========================================================
+
+
 
 [bar/carbo1]
 monitor = eDP1
@@ -56,8 +58,15 @@ modules-left = i3
 modules-center = date clock 
 modules-right = alsa xbacklight wlan eth battery
 width = 100%
-height = 60
+height = 55
 fixed-center = true
+
+
+; Make the bar float with invisible bar
+border-color = ${colors.transparent}
+border-left-size = 20
+border-right-size = 20
+border-top-size = 20
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -65,26 +74,23 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-;border-size = 4
-;border-color = #00000000
 
 padding-left = 5
 padding-right = 5
 
-module-margin-left = 3
-module-margin-right = 3
-
-
+module-margin-left = 4
+module-margin-right = 4
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Inconsolata:style=Bold:pixelsize=14;1
-font-3 = Inconsolata:pixelsize=14;1
-font-4 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
-font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
-font-6 = "Font Awesome 5 Brands:pixelsize=14;1"
-font-7 = DejavVuSans-ExtraLight:style=ExtraLight:size=18
-font-8 = DejavVuSans-ExtraLight:style=ExtraLight:size=24
+font-2 = Inconsolata:style=Bold:pixelsize=14;2
+font-3 = Inconsolata:pixelsize=14;2
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=20;2"
+font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;2"
+font-6 = "Font Awesome 5 Brands:pixelsize=14;2"
+font-7 = DejavVuSans:size=19;2
+font-8 = DejavVuSans:size=24;2
+font-9 = "Font Awesome:style=ExtraLight:size=20;2"
 
 
 tray-position = rightls
@@ -92,54 +98,6 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-;==========================================================
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-label-font = 8
-
-;==========================================================
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
-;==========================================================
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-
-format-mounted = <label-mounted>
-format-mounted-prefix = " "
-format-mounted-prefix-foreground = ${colors.foreground-colored}
-label-mounted = %percentage_used%% used of %total%
-label-mounted-foreground = ${colors.foreground}
-label-mounted-font = 8
-
-format-unmounted = <label-unmounted>
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground}
-label-unmounted-font = 8
-
-;==========================================================
 
 [module/bspwm]
 type = internal/bspwm
@@ -160,17 +118,12 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 3
 
-; Separator in between workspaces
-; label-separator = |
-
-;==========================================================
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
@@ -252,66 +205,34 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-;==========================================================
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-colored}
-;format-underline = #f95050
-format-prefix-font = 4
-
-format = <label>
-label = %percentage:3%%
-label-font = 8
-
-;==========================================================
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-font = 4
-format-prefix-foreground = ${colors.foreground-colored}
-;format-underline = #4bffdc
-label = %percentage_used:3%%
-label-font = 8
-
-;==========================================================
 
 [module/wlan]
 type = internal/network
-interface = "wlp3s0"
+interface = "wlp2s0"
 interval = 3.0
 
-format-connected-prefix = " "
-format-connected-prefix-font = 4
 format-connected-prefix-foreground = ${colors.foreground-colored}
 
-
 format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = #9f78e1
+
+format-connected-font = 10
 
 label-connected = %essid%
-label-connected-foreground = ${colors.foreground-colored}
-label-connected-font = 3
+label-connected-foreground = ${colors.foreground}
+label-connected-font = 8
 
-format-disconnected-prefix = " "
-format-disconnected-prefix-foreground = ${colors.foreground-colored}
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = #9f78e1
 
 label-disconnected = ... 
 label-disconnected-foreground = ${colors.foreground}
 label-disconnected-font = 4
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-colored}
 
 ;==========================================================
 
@@ -339,10 +260,11 @@ type = internal/date
 interval = 1
 
 time = %H:%M:%S
-
-format-prefix = "  "
+format-background = ${colors.background}
+format-prefix = ""
+format-prefix-padding = 3
+format-prefix-font = 5
 format-prefix-foreground = ${colors.foreground-colored}
-;format-underline = #0a6cf5
 
 label = %time%
 label-font = 8
@@ -354,10 +276,6 @@ type = internal/date
 interval = 5
 
 date = " %A %d %B"
-
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-colored}
-
 label = %date%
 label-font = 8
 
@@ -377,8 +295,11 @@ label-muted-foreground = ${colors.foreground-colored}
 
 ramp-volume-foreground = ${colors.foreground-colored}
 ramp-volume-0 = 
-ramp-volume-1 =  
-ramp-volume-2 = " "
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = " "
+ramp-volume-font = 10
 
 ;==========================================================
 
@@ -395,36 +316,29 @@ color-charging    = ${colors.foreground-colored}
 color-discharging = ${colors.foreground-colored}
 color-full        = ${colors.foreground-colored}
 
-; PREFIX
-;format-charging-prefix = ""
-;format-charging-prefix-font = 4
-;format-charging-prefix-foreground = ${self.color-charging}
-
-;format-discharging-prefix = "BAT "
-;format-discharging-prefix-font = 4
-;format-discharging-prefix-foreground = ${self.color-discharging}
-
-;format-full-prefix = "BAT "
-;format-full-prefix-font = 4
-;format-full-prefix-foreground = ${self.color-full}
 
 ; FORMAT 
 format-charging    = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 format-full        = <ramp-capacity><label-full>
 
+format-discharging-font = 10
+format-charging-font = 10
+format-full-font = 10
+
 ; LABEL
 label-charging = %percentage:3%%
 label-charging-font = 8
 
-label-discharging = %percentage:3%%
-label-discharging-font = 8
-
 label-full = %percentage:3%%
 label-full-font = 8
 
+label-discharging = %percentage:3%%
+label-discharging-font = 8
+
 ; BATTERY CAPACITY RAMP
 ramp-capacity-0 = 
+ramp-capacity-font: 5
 ramp-capacity-0-foreground = ${self.color-alert}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -440,12 +354,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${self.color-charging}
 animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
 
 ;==========================================================
 
@@ -494,3 +402,4 @@ margin-top = 5
 ;margin-bottom = 5
 
 ; vim:ft=dosini
+
