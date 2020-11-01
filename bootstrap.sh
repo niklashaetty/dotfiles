@@ -31,14 +31,29 @@
 ##
 
 DOTFILES_DIR=$HOME/repositories/dotfiles
- 
+
+
+##
+#  Parse opts
+##
+
+# saner programming env: these switches turn some bugs into errors
+set -o errexit -o pipefail -o noclobber -o nounset
+
+# -allow a command to fail with !’s side effect on errexit
+# -use return value from ${PIPESTATUS[0]}, because ! hosed $?
+! getopt --test > /dev/null 
+if [[ ${PIPESTATUS[0]} -ne 4 ]]; then
+    echo 'I’m sorry, `getopt --test` failed in this environment.'
+    exit 1
+fi
 
 
 ##
 #  Cleanup backup files. .20* to match .2019- etc.
 #  To clean: sh bootstrap.sh clean
 ##
-if [ $1 = 'clean' ]
+if [ $1 = '--clean' ]
   then
      echo "Cleaning up old backup files"
      rm $HOME/mimeapps.list.20*
@@ -62,7 +77,7 @@ if [ $1 = 'clean' ]
      exit
   fi
 
-if [ $1 = 'blue' ]
+if [ $1 = '--blue' ]
   then
     POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
     WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
@@ -73,6 +88,16 @@ if [ $1 = 'blue' ]
     LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
 fi
 
+if [ $2 = '--high-dpi' ]
+  then
+    POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
+    WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
+
+  else
+    POLYBARCONFIG="$DOTFILES_DIR/polybar/config"
+    WALLPAPER="$DOTFILES_DIR/img/red.jpg"
+    LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
+fi
 
 ##
 #  If config already exist, create backup with timestamp
