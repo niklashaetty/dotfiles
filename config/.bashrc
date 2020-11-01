@@ -106,6 +106,7 @@ alias ..5="cd ../../../../.."
 alias l='ls'
 alias la='ls -Alh --color=auto'
 alias lsa='ls -Alh --color=auto'
+alias ls='ls --color=auto'
 
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
