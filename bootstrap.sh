@@ -32,14 +32,12 @@
 ##
 
 DOTFILES_DIR=$HOME/repositories/dotfiles
-source $DOTFILES_DIR/tre.sh
-
 
 ##
 #  Cleanup backup files. .20* to match .2019- etc.
 #  To clean: sh bootstrap.sh clean
 ##
-if [ $1 = '--clean' ]
+if [ $1 = 'clean' ]
   then
      echo "Cleaning up old backup files"
      rm $HOME/mimeapps.list.20*
@@ -63,17 +61,27 @@ if [ $1 = '--clean' ]
      exit
   fi
 
-if [ $1 = '--blue' ]
+if [ $1 = 'blue' ]
   then
     POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
     WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
-
-  else
+elif [ $1 = 'red' ]
+  then
     POLYBARCONFIG="$DOTFILES_DIR/polybar/config"
     WALLPAPER="$DOTFILES_DIR/img/red.jpg"
     LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
+else
+    echo "You need to specify either red or blue as first argument"
+    exit
 fi
 
+if [ -z "$2" ]
+  then 
+    echo "You need to set config file as 2nd argument"
+    exit
+fi
+
+source $DOTFILES_DIR/$2.sh
 
 ##
 #  If config already exist, create backup with timestamp
