@@ -58,7 +58,7 @@ modules-left = i3
 modules-center = date clock 
 modules-right = alsa xbacklight wlan eth battery
 width = 100%
-height = 35
+height = ${env:dotfiles_bar_height:x}
 fixed-center = true
 
 

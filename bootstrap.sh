@@ -66,6 +66,7 @@ if [ $1 = 'blue' ]
     THEME=blue
     POLYBARCONFIG="$DOTFILES_DIR/polybar/config.blue"
     WALLPAPER="$DOTFILES_DIR/img/blue.jpg"
+    LOCKSCREEN="$DOTFILES_DIR/img/lockscreen.jpg"
 elif [ $1 = 'red' ]
   then
     THEME=red
@@ -83,7 +84,13 @@ if [ -z "$2" ]
     exit
 fi
 
+echo "Taking config files from $2"
+echo
 source $DOTFILES_DIR/$2.sh
+echo "Loaded this config: "
+echo "$(env | grep dotfiles_)"
+echo
+
 
 ##
 #  If config already exist, create backup with timestamp
@@ -179,6 +186,7 @@ backup_old_file_if_exists "$HOME/.config/polybar/config"
 backup_old_file_if_exists "$HOME/.config/polybar/launch.sh"
 cp $POLYBARCONFIG $HOME/.config/polybar/config
 cp $DOTFILES_DIR/polybar/launch.sh $HOME/.config/polybar/
+sed -i "1 i\source $DOTFILES_DIR/$2.sh" $HOME/.config/polybar/launch.sh
 chmod +x $HOME/.config/polybar/launch.sh
 
 ##
