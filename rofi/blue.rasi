@@ -11,7 +11,7 @@ configuration {
 }
 
 * {
-    accent: #265da5;
+    accent: #81a1c1;
     foreground:                 @accent;
     background:                 rgba(0, 0, 0, 0.50);
     transparent:                rgba(0, 0, 0, 0);

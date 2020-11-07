@@ -41,9 +41,9 @@ background = #0D000000
 transparent = #00000000
 
 background-alt = #444
-foreground = #265da5
+foreground = #81a1c1
 foreground-alt = #555
-foreground-colored = #265da5
+foreground-colored = #4c739a
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
