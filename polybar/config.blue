@@ -56,7 +56,7 @@ alert = #bd2c40
 monitor = ${env:dotfiles_monitor:x}
 modules-left = i3
 modules-center = date clock 
-modules-right = alsa xbacklight wlan eth battery
+modules-right = alsa xbacklight wlan eth vpn battery
 width = 100%
 height = ${env:dotfiles_bar_height:x}
 fixed-center = true
@@ -168,7 +168,7 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 type = internal/xbacklight
 
 format = <label>
-format-prefix = "  "
+format-prefix = " "
 label = "%percentage%%"
 format-prefix-foreground = ${colors.foreground-colored}
 label-font = 1
@@ -191,6 +191,10 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+[module/vpn]
+type = custom/script
+exec = $HOME/.config/polybar/vpncheck.sh
+interval = 5
 
 [module/wlan]
 type = internal/network
@@ -203,7 +207,7 @@ format-connected = <ramp-signal> <label-connected>
 
 format-connected-font = 10
 
-label-connected = %essid%
+label-connected = %essid:0:10:...%
 label-connected-foreground = ${colors.foreground}
 label-connected-font = 1
 
@@ -213,11 +217,11 @@ label-disconnected = ...
 label-disconnected-foreground = ${colors.foreground}
 label-disconnected-font = 1
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-colored}
 
 ;==========================================================
@@ -388,4 +392,3 @@ margin-top = 5
 ;margin-bottom = 5
 
 ; vim:ft=dosini
-

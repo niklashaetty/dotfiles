@@ -184,10 +184,13 @@ cp $LOCKSCREEN $HOME/Pictures/lockscreen.jpg
 ##
 backup_old_file_if_exists "$HOME/.config/polybar/config"
 backup_old_file_if_exists "$HOME/.config/polybar/launch.sh"
+backup_old_file_if_exists "$HOME/.config/polybar/vpncheck.sh"
 cp $POLYBARCONFIG $HOME/.config/polybar/config
 cp $DOTFILES_DIR/polybar/launch.sh $HOME/.config/polybar/
 sed -i "1 i\source $DOTFILES_DIR/$2.sh" $HOME/.config/polybar/launch.sh
 chmod +x $HOME/.config/polybar/launch.sh
+cp $DOTFILES_DIR/polybar/vpncheck.sh $HOME/.config/polybar/
+chmod +x $HOME/.config/polybar/vpncheck.sh
 
 ##
 #  rofi
