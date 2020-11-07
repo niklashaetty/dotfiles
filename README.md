@@ -63,7 +63,7 @@ Dependencies that I know of:
 4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
 5) cd ~/repositories/dotfiles
 6) chmod +x bootstrap.sh
-7) sh bootstrap.sh <red/blue> <config>. Example with the tre.sh config: sh bootstrap.sh red tre
+7) sh bootstrap.sh <red/blue> <config>. Example: `sh bootstrap.sh blue highdpi`
 8) Lock once to set and cache the lockscreen background
     ```
     betterlockscreen -u "$HOME/Pictures/lockscreen.jpg" -l
