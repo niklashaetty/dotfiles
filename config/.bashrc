@@ -3,7 +3,7 @@
 #
 
 # Starting prefix format
-PS1="\n \[\033[0;32m\]\u\[\033[0m\] \[\033[0;36m\]\w\[\033[0m\]  "
+PS1="\n \[\033[0;32m\]\u\[\033[0m\] \[\033[0;36m\]\w\[\033[0m\] » "
 
 [[ $- != *i* ]] && return
 
@@ -132,4 +132,6 @@ git config --global alias.lg 'log --graph --pretty="format:%C(red)%d%C(reset) %C
 git config --global alias.la '!grep "\t=" ~/.gitconfig | less'
 git config --global alias.alias '! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /'
 
-
+# Add fzf
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash

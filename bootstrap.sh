@@ -195,7 +195,11 @@ chmod +x $HOME/.config/polybar/vpncheck.sh
 backup_old_file_if_exists "$HOME/.config/rofi/config"
 backup_old_file_if_exists "$HOME/.config/rofi/red.rasi"
 backup_old_file_if_exists "$HOME/.config/rofi/blue.rasi"
-cp $DOTFILES_DIR/rofi/config $HOME/.config/rofi/
+# Do some magic to replace the font with the one specified in the config file
+cp $DOTFILES_DIR/rofi/config $DOTFILES_DIR/rofi/rofitmp
+sed -i "1s/.*/$dotfiles_rofi_font/" $DOTFILES_DIR/rofi/rofitmp
+cp $DOTFILES_DIR/rofi/rofitmp $HOME/.config/rofi/config
+rm $DOTFILES_DIR/rofi/rofitmp
 cp $DOTFILES_DIR/rofi/$THEME.rasi $HOME/.config/rofi/carbo.rasi
 
 ##

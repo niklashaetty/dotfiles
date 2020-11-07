@@ -51,13 +51,13 @@ Dependencies that I know of:
 2) Install the dependencies available in pacman
     
     ```
-    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome-4 feh bash-completion
+    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome-4 feh bash-completion adobe-source-code-pro-fonts
     ```
 
 3) Install dependencies available in AUR
 
     ```
-    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen slack-desktop
+    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen slack-desktop powerline-fonts-git
     ```
 
 4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles

@@ -14,7 +14,7 @@ export dotfiles_icon_font="Font Awesome 5 Free:style=Solid:pixelsize=20;2"
 export dotfiles_text_font="DejavVuSans:size=20;2"
 
 # Will replace 2nd line in terminalrc
-export dotfiles_terminal_font="FontName=Monospace 20"
+export dotfiles_terminal_font="FontName=Source Code Pro 20"
 
 # Will replace 1st line in rofi config.
-export dotfiles_rofi_font="rofi.font: DejaVuSans 16"
+export dotfiles_rofi_font="rofi.font: Source Code Pro 20"
