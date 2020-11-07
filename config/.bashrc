@@ -123,3 +123,13 @@ alias gcm='git commit -m'
 alias gl='git log --oneline -n 10'
 alias gp='git push'
 alias proc='ps aux | grep'
+
+# git aliases
+git config --global alias.s 'status'
+git config --global alias.l 'log --oneline -n 10'
+git config --global alias.ll 'log --oneline -n'
+git config --global alias.lg 'log --graph --pretty="format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s"'
+git config --global alias.la '!grep "\t=" ~/.gitconfig | less'
+git config --global alias.alias '! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /'
+
+

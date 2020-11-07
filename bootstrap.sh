@@ -19,7 +19,8 @@
 ##    2) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles
 ##    3) cd ~repositories/dotfiles
 ##    4) chmod +x bootstrap.sh
-##    5) sh bootstrap.sh
+##    !) Make sure you have a config file, e.g. highdpi (highdpi.sh)
+##    5) sh bootstrap.sh <theme> <config without .sh>
 ##
 ##  This will create a lot of backups if you run it
 ##  several times. To clean all backups, run:
@@ -47,7 +48,6 @@ if [ $1 = 'clean' ]
      rm $HOME/.config/picom.conf.20*
      rm $HOME/.config/chrome-flags.conf.20*
      rm $HOME/.bashrc.20*
-     rm $HOME/.gitconfig.20*
      rm $HOME/.i3/config.20*
      rm $HOME/.profile.20*
      rm $HOME/.Xmodmap.20*
@@ -145,9 +145,6 @@ cp $DOTFILES_DIR/i3/config $HOME/.i3/config
 ##
 # .config files
 ##
-  # git config
-  backup_old_file_if_exists "$HOME/.gitconfig"
-  cp $DOTFILES_DIR/config/.gitconfig $HOME/.gitconfig
 
   # default apps
   backup_old_file_if_exists "$HOME/mimeapps.list"
