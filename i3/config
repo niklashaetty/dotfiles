@@ -233,8 +233,8 @@
 
   # resolution and screen fixes
   set_from_resource $monitor echo "$dotfiles_monitor"
-  set_from_resource $resoultion echo "$dotfiles_resolution"
-  exec_always --no-startup-id xrandr --output eDP1 --mode 3840x2160 
+  set_from_resource $resolution echo "$dotfiles_resolution"
+   exec_always --no-startup-id xrandr --output $monitor --mode $resolution
 
   # set autorepeat threshold to 250ms and speed to 50 repeats per seconds
   exec_always --no-startup-id xset r rate 250 50
