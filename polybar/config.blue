@@ -328,7 +328,7 @@ label-discharging-font = 1
 
 ; BATTERY CAPACITY RAMP
 ramp-capacity-0 = 
-ramp-capacity-font: 5
+ramp-capacity-font = 5
 ramp-capacity-0-foreground = ${self.color-alert}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
