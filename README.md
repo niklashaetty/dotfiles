@@ -40,12 +40,12 @@ Dependencies that I know of:
     sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
     ```
 
-* This will install power management tools for optimized battery life.
+* This will install power management tools for optimized battery life. Also time management
 
     ```
-    sudo pacman -S tlp
+    sudo pacman -S tlp ntp
     systemctl enable tlp
-    systemctl enable tlp-sleep.service
+    sudo timedatectl set-ntp true
     ```
 
 2) Install the dependencies available in pacman
