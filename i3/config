@@ -107,7 +107,7 @@
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
     # snapshots bindings
-    bindsym $mod+p exec scrot '%Y-%m-%d-%T_screenshot.jpg' -e 'mv $f ~/Pictures/screenshots'
+    bindsym $mod+p exec scrot '%Y-%m-%d-%T_screenshot.jpg' -e 'mv $f ~/pictures/screenshots'
 
     # notifications debugging
     bindsym $mod+n          exec notify-send "Notification" "This is a test notification" --icon=bleachbit
@@ -264,7 +264,7 @@
 #################################################
 
   # picom
-  exec_always --no-startup-id picom
+  exec_always --no-startup-id picom -b
 
   # dunst
   exec_always --no-startup-id killall dunst
@@ -289,7 +289,7 @@
 
 
   # autolock after 3
-  exec_always xautolock -time 5 -locker '/usr/bin/betterlockscreen -l' -killer '/usr/bin/betterlockscreen -s' -killtime 10 -secure
+  exec_always xautolock -time 10 -locker '/usr/bin/betterlockscreen -l' -killer '/usr/bin/betterlockscreen -s' -killtime 15 -secure
 
 #################################################
 ##                                             ##
@@ -297,4 +297,5 @@
 ##                                             ##
 #################################################
 
-exec_always --no-startup-id xinput set-prop 13 332 0.4
+exec_always --no-startup-id xinput --set-prop "DLL07BE:01 06CB:7A13 Touchpad" 338 0.4
+exec_always --no-startup-id xinput --set-prop "Laview Technology Mionix Naos 7000" 338 0.8

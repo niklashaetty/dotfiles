@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# set if this is a high dpi screen. WIll be used in individual configs later.
+export dotfiles_highdpi_monitor=true
+
 # monitor check with xrandr
 export dotfiles_monitor="eDP1"
 export dotfiles_resolution="3840x2160"

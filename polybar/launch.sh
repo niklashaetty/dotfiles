@@ -21,4 +21,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 
 # Launch carbo bar
-polybar -r carbo1 &
+polybar --reload carbo1
+

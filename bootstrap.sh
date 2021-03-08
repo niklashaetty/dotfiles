@@ -33,7 +33,6 @@
 ##
 
 DOTFILES_DIR=$HOME/repositories/dotfiles
-
 ##
 #  Cleanup backup files. .20* to match .2019- etc.
 #  To clean: sh bootstrap.sh clean
@@ -81,12 +80,17 @@ fi
 if [ -z "$2" ]
   then 
     echo "You need to set config file as 2nd argument"
+    echo "Valid configs are (without .sh):"
+    echo $(ls ./workstation_configs/)
+    echo "Example: sh bootstrap.sh blue highdpi"
     exit
 fi
 
+CONFIG_DIR=$DOTFILES_DIR/workstation_configs/$2.sh
+
 echo "Taking config files from $2"
 echo
-source $DOTFILES_DIR/$2.sh
+source $CONFIG_DIR
 echo "Loaded this config: "
 echo "$(env | grep dotfiles_)"
 echo
@@ -167,8 +171,20 @@ cp $DOTFILES_DIR/i3/config $HOME/.i3/config
   cp $DOTFILES_DIR/config/.XResources $HOME/.XResources
 
   # .chrome-flags
-  backup_old_file_if_exists "$HOME/.config/chrome-flags.conf"
-  cp $DOTFILES_DIR/config/chrome-flags.conf $HOME/.config/chrome-flags.conf
+  backup_old_file_if_exists "$HOME/.XResources"
+  if [ "$dotfiles_highdpi_monitor" = true ] ; then
+    cp $DOTFILES_DIR/config/.XResources_highdpi $HOME/.XResources
+  else
+    cp $DOTFILES_DIR/config/.XResources $HOME/.XResources
+  fi
+
+# .chrome-flags
+  if [ "$dotfiles_highdpi_monitor" = true ] ; then
+    backup_old_file_if_exists "$HOME/.config/chrome-flags.conf"
+    cp $DOTFILES_DIR/config/chrome-flags.conf $HOME/.config/chrome-flags.conf
+  else
+     rm $HOME/.config/chrome-flags.conf
+  fi
 
 ##
 #  Wallpapers
@@ -184,7 +200,7 @@ backup_old_file_if_exists "$HOME/.config/polybar/launch.sh"
 backup_old_file_if_exists "$HOME/.config/polybar/vpncheck.sh"
 cp $POLYBARCONFIG $HOME/.config/polybar/config
 cp $DOTFILES_DIR/polybar/launch.sh $HOME/.config/polybar/
-sed -i "1 i\source $DOTFILES_DIR/$2.sh" $HOME/.config/polybar/launch.sh
+sed -i "1 i\source $DOTFILES_DIR/workstation_configs/$2.sh" $HOME/.config/polybar/launch.sh
 chmod +x $HOME/.config/polybar/launch.sh
 cp $DOTFILES_DIR/polybar/vpncheck.sh $HOME/.config/polybar/
 chmod +x $HOME/.config/polybar/vpncheck.sh
@@ -252,6 +268,11 @@ cp $DOTFILES_DIR/gtk/.gtkrc-2.0 $HOME/
 #  betterlockscreen
 ## 
 sudo cp $DOTFILES_DIR/betterlockscreen/betterlockscreen /usr/bin/
+
+##
+#  Fix resolution stuff
+##
+sh xrandr.sh $2
 
 ##
 #  Restart i3

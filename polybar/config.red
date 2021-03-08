@@ -86,12 +86,12 @@ font-0 = ${env:dotfiles_text_font:x}
 font-1 = ${env:dotfiles_icon_font:x}
 font-2 = Inconsolata:style=Bold:pixelsize=14;2
 font-3 = Inconsolata:pixelsize=14;2
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=20;2"
-font-5 = "Font Awesome 5 Free:style=Solid:pixelsize=14;2"
+font-4 = ${env:dotfiles_icon_font:x}
+font-5 = ${env:dotfiles_icon_font:x}
 font-6 = "Font Awesome 5 Brands:pixelsize=14;2"
 font-7 = DejavVuSans:size=19;2
 font-8 = DejavVuSans:size=24;2
-font-9 = "Font Awesome:style=ExtraLight:size=20;2"
+font-9 = ${env:dotfiles_icon_font:x}
 
 
 tray-position = rightls
@@ -328,7 +328,7 @@ label-discharging-font = 1
 
 ; BATTERY CAPACITY RAMP
 ramp-capacity-0 = 
-ramp-capacity-font: 5
+ramp-capacity-font = 5
 ramp-capacity-0-foreground = ${self.color-alert}
 ramp-capacity-1 = 
 ramp-capacity-2 = 
