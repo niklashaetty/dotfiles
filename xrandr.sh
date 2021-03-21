@@ -14,13 +14,13 @@ source $CONFIG_DIR
 echo "sourced config"
 echo "Running xrandr --output $dotfiles_monitor --mode $dotfiles_resolution"
 xrandr --output $dotfiles_monitor --mode $dotfiles_resolution
-if [ "$dotfiles_monitor" != "eDP1" ]; then
+if [ "$dotfiles_monitor" != "eDP-1" ]; then
   echo "Turning off eDP1"
-  xrandr --output eDP1 --off
+  xrandr --output eDP-1 --off
 fi
 
-if [ "$dotfiles_monitor" = "eDP1" ]; then
+if [ "$dotfiles_monitor" = "eDP-1" ]; then
   echo "Found laptop monitor setting, will turn on eDP1"
- # xrandr --output eDP1 --auto
+  xrandr --output eDP-1 --auto
 fi
 

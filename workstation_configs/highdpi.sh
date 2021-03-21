@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
 # set if this is a high dpi screen. WIll be used in individual configs later.
 export dotfiles_highdpi_monitor=true
 
 # monitor check with xrandr
-export dotfiles_monitor="eDP1"
+export dotfiles_monitor="eDP-1"
 export dotfiles_resolution="3840x2160"
 
 # bar height
@@ -17,7 +17,7 @@ export dotfiles_icon_font="Font Awesome 5 Free:style=Solid:pixelsize=20;2"
 export dotfiles_text_font="DejavVuSans:size=20;2"
 
 # Will replace 2nd line in terminalrc
-export dotfiles_terminal_font="FontName=Source Code Pro 20"
+export dotfiles_terminal_font="FontName=Monospace 20"
 
 # Will replace 1st line in rofi config.
-export dotfiles_rofi_font="rofi.font: Source Code Pro 20"
+export dotfiles_rofi_font="rofi.font:Monospace 20"

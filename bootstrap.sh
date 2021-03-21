@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 
 ##  Author: Niklas Hätty
@@ -47,7 +47,7 @@ if [ $1 = 'clean' ]
      rm $HOME/.config/picom.conf.20*
      rm $HOME/.config/chrome-flags.conf.20*
      rm $HOME/.bashrc.20*
-     rm $HOME/.i3/config.20*
+     rm $HOME/.config/.i3/config.20*
      rm $HOME/.profile.20*
      rm $HOME/.Xmodmap.20*
      rm $HOME/.XResources.20*
@@ -89,7 +89,8 @@ fi
 CONFIG_DIR=$DOTFILES_DIR/workstation_configs/$2.sh
 
 echo "Taking config files from $2"
-echo
+echo $CONFIG_DIR
+source /home/niklas/repositories/dotfiles/workstation_configs/highdpi.sh
 source $CONFIG_DIR
 echo "Loaded this config: "
 echo "$(env | grep dotfiles_)"
@@ -143,8 +144,8 @@ mkdir -p $HOME/.config/xfce4/terminal
 ##
 #  i3 config
 ##
-backup_old_file_if_exists "$HOME/.i3/config"
-cp $DOTFILES_DIR/i3/config $HOME/.i3/config
+backup_old_file_if_exists "$HOME/.config/i3/config"
+cp $DOTFILES_DIR/i3/config $HOME/.config/i3/config
 
 ##
 # .config files
@@ -272,7 +273,7 @@ sudo cp $DOTFILES_DIR/betterlockscreen/betterlockscreen /usr/bin/
 ##
 #  Fix resolution stuff
 ##
-sh xrandr.sh $2
+#sh xrandr.sh $2
 
 ##
 #  Restart i3

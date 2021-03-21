@@ -225,7 +225,7 @@
 #################################################
 
   # Create borders
-  for_window [class="^.*"] border pixel 0
+  for_window [class=".*"] border pixel 0
 
   # Gaps
   gaps inner 20
@@ -299,3 +299,4 @@
 
 exec_always --no-startup-id xinput --set-prop "DLL07BE:01 06CB:7A13 Touchpad" 338 0.4
 exec_always --no-startup-id xinput --set-prop "Laview Technology Mionix Naos 7000" 338 0.8
+

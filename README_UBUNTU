@@ -1,0 +1,27 @@
+###
+
+Install polybar
+sudo apt install polybar
+Install vim
+Install git
+install feh
+install picom
+Install i3 gaps:
+sudo add-apt-repository -y ppa:regolith-linux/stable
+$ sudo apt install i3-gaps
+install rofi:
+sudo apt install rofi
+
+install fontawesome:
+sudo apt-get install -y fonts-font-awesome
+
+install sourcecode font:
+https://askubuntu.com/questions/193072/how-to-use-the-adobe-source-code-pro-font
+
+
+betterlockscreen:
+https://github.com/pavanjadhaw/betterlockscreen
+sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+sudo apt install imagemagick
+ilock color:
+https://github.com/Raymo111/i3lock-color
