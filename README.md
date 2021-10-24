@@ -11,7 +11,7 @@ Credit is given in files where applicable. All credit to the original authors :)
 **bar:** polybar  
 **launcher:** rofi  
 **notifications:** dunst  
-**extras:** compton, sublime, themes and icons in gtk/
+**extras:** picom, sublime, themes and icons in gtk/
 
 ## Dependencies  
 
@@ -27,6 +27,7 @@ Dependencies that I know of:
 * xfce4-terminal
 * feh
 * betterlockscreen
+* cron (to delete old configs)
 
 ## Get started
 
@@ -51,13 +52,13 @@ Dependencies that I know of:
 2) Install the dependencies available in pacman
     
     ```
-    sudo pacman -S git compton polybar rofi dunst ttf-font-awesome-4 feh bash-completion adobe-source-code-pro-fonts
+    sudo pacman -S git compton cron polybar rofi dunst ttf-font-awesome-4 feh bash-completion adobe-source-code-pro-fonts
     ```
 
 3) Install dependencies available in AUR
 
     ```
-    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen slack-desktop powerline-fonts-git
+    pamac build sublime-text-dev xfce4-terminal-git betterlockscreen slack-desktop powerline-fonts-git ttf-font-awesome
     ```
 
 4) git clone https://github.com/niklashaetty/dotfiles.git ~/repositories/dotfiles

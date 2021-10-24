@@ -1,0 +1,10 @@
+configuration {
+  modi: "window,ssh,run";
+  blur-background: "true";
+ fullscreen: "true";
+ terminal:"urxvt";
+ show: "run"; 
+}
+
+//@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"
+@theme "/home/niklas/.config/rofi/themes/slate.rasi"

@@ -208,15 +208,14 @@ chmod +x $HOME/.config/polybar/vpncheck.sh
 ##
 #  rofi
 ##
-backup_old_file_if_exists "$HOME/.config/rofi/config"
-backup_old_file_if_exists "$HOME/.config/rofi/red.rasi"
-backup_old_file_if_exists "$HOME/.config/rofi/blue.rasi"
-# Do some magic to replace the font with the one specified in the config file
-cp $DOTFILES_DIR/rofi/config $DOTFILES_DIR/rofi/rofitmp
-sed -i "1s/.*/$dotfiles_rofi_font/" $DOTFILES_DIR/rofi/rofitmp
-cp $DOTFILES_DIR/rofi/rofitmp $HOME/.config/rofi/config
+backup_old_file_if_exists "$HOME/.config/rofi/config.rasi"
+backup_old_file_if_exists "$HOME/.config/rofi/themes/slate.rasi"
+# Do some magic to insert the font variables set in config at line using sed
+cp $DOTFILES_DIR/rofi/config.rasi $DOTFILES_DIR/rofi/rofitmp
+sed -i "3 i $dotfiles_rofi_font" $DOTFILES_DIR/rofi/rofitmp
+cp $DOTFILES_DIR/rofi/rofitmp $HOME/.config/rofi/config.rasi
 rm $DOTFILES_DIR/rofi/rofitmp
-cp $DOTFILES_DIR/rofi/$THEME.rasi $HOME/.config/rofi/carbo.rasi
+cp $DOTFILES_DIR/rofi/themes/slate.rasi $HOME/.config/rofi/themes/slate.rasi
 
 ##
 #  sublime-text
